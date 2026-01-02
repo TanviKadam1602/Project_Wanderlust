@@ -37,7 +37,11 @@ main()
     });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(dbUrl, {
+        family: 4,
+        tls: true,
+        tlsAllowInvalidCertificates: true,
+    });
 }
 
 app.set("view engine", "ejs")
